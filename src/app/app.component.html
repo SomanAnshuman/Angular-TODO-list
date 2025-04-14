@@ -7,7 +7,39 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
+<body class="m-2">
+  <h1 class="text-2xl font-bold">To-Do List</h1>
+  <br />
 
+  <input
+    type="text"
+    class="border placeholder:text-gray-300"
+    placeholder="Enter New Task"
+    [(ngModel)]="task"
+  />
+  <button
+    (click)="addTask()"
+    class="border bg-gray-300 cursor-pointer active:bg-gray-500"
+  >
+    Add Task
+  </button>
+  <br />
+
+  <!-- <b class="text-xl">{{ task }}</b> -->
+
+  @for (task of taskList; track task.id) {
+  <ul class="flex justify-between">
+    <li>{{ task.id }}</li>
+    <li>{{ task.task }}</li>
+    <button
+      (click)="deleteTask(task.id)"
+      class="border bg-gray-300 cursor-pointer active:bg-gray-500"
+    >
+      Delete
+    </button>
+  </ul>
+  }
+</body>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
